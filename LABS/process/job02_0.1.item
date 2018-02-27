@@ -2,6 +2,8 @@
 <talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
   <context confirmationNeeded="false" name="Default"/>
   <parameters>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="0" show="false"/>
     <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
@@ -103,4 +105,70 @@
     <routinesParameter id="_YZIUYBvJEeiQHomYJj1hgQ" name="TalendStringUtil"/>
     <routinesParameter id="_YY98UBvJEeiQHomYJj1hgQ" name="TalendString"/>
   </parameters>
+  <node componentName="tSQLTemplateMerge" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="288" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSQLTemplateMerge_1" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DBTYPE" value="MYSQL"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_AS400" value="" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_DB2" value="" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_FIREBIRD" value="" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_GREENPLUM" value="" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_HIVE" value="" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_INGRES" value="" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_INTERBASE" value="" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_MSSQL" value="" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_MYSQL" value=""/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_DBORACLE" value="" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_PARACCEL" value="" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_POSTGREPLUS" value="" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_POSTGRE" value="" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_SQLITE" value="" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_SYBASE" value="" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_TERADATA" value="" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION_VERTICA" value="" show="false"/>
+    <elementParameter field="TEXT" name="SOURCE_TABLE" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="TARGET_TABLE" value="&quot;&quot;"/>
+    <elementParameter field="TABLE" name="MERGE_ON"/>
+    <elementParameter field="CHECK" name="USE_UPDATE" value="true"/>
+    <elementParameter field="TABLE" name="UPDATE_MAPPING"/>
+    <elementParameter field="CHECK" name="SPECIFY_ADDITIONAL_UPDATE_COLUMNS" value="false"/>
+    <elementParameter field="TABLE" name="ADDITIONAL_UPDATE_COLUMNS" show="false"/>
+    <elementParameter field="CHECK" name="SPECIFY_UPDATE_WHERE_CLAUSE" value="false"/>
+    <elementParameter field="TEXT" name="UPDATE_WHERE_CLAUSE" value="&quot;target_table.id >= 100&quot;" show="false"/>
+    <elementParameter field="LABEL" name="NOTE_WHERE_UPDATE" value=" (Doesn't work with Oracle 9i)"/>
+    <elementParameter field="CHECK" name="USE_INSERT" value="true"/>
+    <elementParameter field="TABLE" name="INSERT_MAPPING"/>
+    <elementParameter field="CHECK" name="SPECIFY_ADDITIONAL_INSERT_COLUMNS" value="false"/>
+    <elementParameter field="TABLE" name="ADDITIONAL_INSERT_COLUMNS" show="false"/>
+    <elementParameter field="CHECK" name="SPECIFY_INSERT_WHERE_CLAUSE" value="false"/>
+    <elementParameter field="TEXT" name="INSERT_WHERE_CLAUSE" value="&quot;source_table.id >= 100&quot;" show="false"/>
+    <elementParameter field="LABEL" name="NOTE_WHERE_UPDATE" value=" (Doesn't work with Oracle 9i)"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter field="TEXT" name="SQLPATTERN_DB_NAME" value="Generic" show="false"/>
+    <elementParameter field="TABLE" name="SQLPATTERN_VALUE">
+      <elementValue elementRef="SQLPATTERNLIST" value="_YcGv4BvJEeiQHomYJj1hgQ--MergeUpdate"/>
+      <elementValue elementRef="SQLPATTERNLIST" value="_Ybr5IBvJEeiQHomYJj1hgQ--MergeInsert"/>
+    </elementParameter>
+    <metadata connector="TABLE" name="tSQLTemplateMerge_1"/>
+    <metadata connector="SCHEMA_TARGET" name="SCHEMA_TARGET"/>
+  </node>
+  <node componentName="tWarn" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="480" posY="416">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tWarn_1" show="false"/>
+    <elementParameter field="TEXT" name="MESSAGE" value="&quot;this is a warning&quot;"/>
+    <elementParameter field="TEXT" name="CODE" value="42"/>
+    <elementParameter field="CLOSED_LIST" name="PRIORITY" value="4"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tWarn_1"/>
+  </node>
+  <note opaque="true" posX="448" posY="192" sizeHeight="64" sizeWidth="96" text="text"/>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSQLTemplateMerge_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tWarn_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
 </talendfile:ProcessType>
